@@ -1,4 +1,7 @@
+<div class="d-flex justify-content-between">
 <h2> <%= @task.title %> </h2>
+<button><%= link_to 'edit task', edit_task_path(@task) %> </button>
+</div>
 <p> <%= @task.details %> </p>
   <%= form_for(@task) do |f| %>
     <%= f.label :completed %>
