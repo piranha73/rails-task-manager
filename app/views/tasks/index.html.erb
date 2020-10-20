@@ -1,7 +1,13 @@
-<h2>index</h2>
+<h2>My Tasks</h2>
 
-<ul>
-  <% @tasks.each do |thing| %>
-      <li> <%= thing.title %> </li>
+<ul style="list-style-type: none">
+  <% @tasks.each do |task| %>
+    <li>
+      <%= form_for(task) do |f| %>
+        <%= f.check_box :completed %> <span><%=link_to task.title, task_path(task) %></span>
+      <% end %>
+    </li>
   <% end %>
 </ul>
+<hr>
+<%= link_to "Create new task", new_task_path %>
